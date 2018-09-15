@@ -1,0 +1,16 @@
+.root {
+    -fx-font-size: 16px;
+}
+
+#btn_2 {
+   /* -fx-background-color: #3760ee;*/
+}
+
+Button:hover {
+    -fx-opacity: .8;
+}
+
+#btn_2, #btn_1, #btn_3, #btn_4 {
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+}
