@@ -25,27 +25,27 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn_1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" text="Button" textAlignment="CENTER">
+            <Button fx:id="btn_1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" textAlignment="CENTER">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="DEFAULT" />
                </cursor>
                <effect>
                   <Glow />
                </effect>
             </Button>
-            <Button fx:id="btn_2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" text="Button" textAlignment="CENTER" GridPane.columnIndex="1">
+            <Button fx:id="btn_2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" textAlignment="CENTER" GridPane.columnIndex="1">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button fx:id="btn_3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" text="Button" GridPane.rowIndex="1">
+            <Button fx:id="btn_3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" GridPane.rowIndex="1">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button fx:id="btn_4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btn_4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
          </children>
