@@ -71,6 +71,6 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="236.0" layoutY="142.0" mnemonicParsing="false" onAction="#startGame" prefHeight="38.0" prefWidth="127.0" text="Start Game" AnchorPane.leftAnchor="236.0" AnchorPane.rightAnchor="236.8" />
+      <Button fx:id="btn_start" layoutX="236.0" layoutY="142.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="38.0" prefWidth="127.0" text="Start Game" AnchorPane.leftAnchor="236.0" AnchorPane.rightAnchor="236.8" />
    </children>
 </AnchorPane>
