@@ -16,9 +16,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainScene.Controller">
    <children>
-      <StackPane layoutX="-6.0" layoutY="83.0" prefHeight="354.0" prefWidth="606.0">
+      <StackPane layoutX="-6.0" layoutY="83.0" prefHeight="350.0" prefWidth="606.0">
          <children>
-            <GridPane prefHeight="187.0" prefWidth="606.0">
+            <GridPane prefHeight="350.0" prefWidth="606.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
