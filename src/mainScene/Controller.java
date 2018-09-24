@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -21,15 +22,14 @@ public class Controller implements Initializable {
     private Label mainMessage;
 
     @FXML
+    private TextField usernameInput;
+
+    @FXML
     private MenuItem menu_close;
 
-    // make audioClips for every sound
-    private SoundButton soundBtn1 = new SoundButton("btn_1", "btn_1.mp3");
-    private SoundButton soundBtn2 = new SoundButton("btn_2", "btn_2.wav");
-    private SoundButton soundBtn3 = new SoundButton("btn_3", "btn_3.wav");
-    private SoundButton soundBtn4 = new SoundButton("btn_4", "btn_4.wav");
     // initialize game
     private SimonGame game = new SimonGame();
+    private Player player = new Player();
 
 
     @FXML
@@ -42,25 +42,27 @@ public class Controller implements Initializable {
 
         switch (btn_id) {
             case "btn_1":
-                soundBtn1.play();
+                game.soundBtn1.play();
                 System.out.println("Auhhh");
                 // add btn id to the sequence array;
                 break;
             case "btn_2":
-                soundBtn2.play();
+                game.soundBtn2.play();
                 System.out.println("Dada Da");
                 break;
             case "btn_3":
-                soundBtn3.play();
+                game.soundBtn3.play();
                 System.out.println("Yeee Yeahh");
                 break;
             case "btn_4":
-                soundBtn4.play();
+                game.soundBtn4.play();
                 System.out.println("Doubidu to be bad!");
                 break;
             case "btn_start":
-                mainMessage.setText("Level 1");
-                System.out.println("starting the game: TODO");
+                mainMessage.setText("Level " + game.getLevel());
+                game.startGame();
+                System.out.println("Player: " + player.getName());
+                // TODO make magic
                 break;
             default:
                 System.out.println("Default Action - shouldn't happen");
@@ -68,26 +70,31 @@ public class Controller implements Initializable {
 
         // TODO:
         /* `while` loop running until user choose GameLevel times the sound */
-
-        //AudioClip note = new AudioClip(getClass().getResource("assets/" + btn_id + ".mp3").toString());
-
     }
 
     public void changeScene(ActionEvent event) throws Exception {
-        Parent main = FXMLLoader.load(getClass().getResource("main.fxml"));
+        // TODO checking if username field has any input
+        if (usernameInput.getText().length() == 0) {
+            usernameInput.setText("randomGuy");
+        } else {
 
-        Scene mainScene = new Scene(main, 600, 475);
-        mainScene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+            Parent main = FXMLLoader.load(getClass().getResource("main.fxml"));
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene mainScene = new Scene(main, 600, 475);
+            mainScene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
 
-        stage.setScene(mainScene);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // initialize player with provided username
+            player.setName(usernameInput.getText());
+
+            stage.setScene(mainScene);
+        }
     }
 
     // init method - doesn't seem that I need it
     public void initialize(URL url, ResourceBundle resource) {
         /* === set level  === */
         game.setLevel(1);
-        // Get username
     }
 }
