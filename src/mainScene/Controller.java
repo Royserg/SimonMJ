@@ -1,12 +1,18 @@
-package sample;
+package mainScene;
 
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -67,11 +73,21 @@ public class Controller implements Initializable {
 
     }
 
+    public void changeScene(ActionEvent event) throws Exception {
+        Parent main = FXMLLoader.load(getClass().getResource("main.fxml"));
+
+        Scene mainScene = new Scene(main, 600, 475);
+        mainScene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.setScene(mainScene);
+    }
+
     // init method - doesn't seem that I need it
     public void initialize(URL url, ResourceBundle resource) {
         /* === set level  === */
         game.setLevel(1);
-        System.out.println(game.getLevel());
         // Get username
     }
 }
