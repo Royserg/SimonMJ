@@ -1,4 +1,4 @@
-package sample;
+package mainScene;
 
 import java.util.ArrayList;
 

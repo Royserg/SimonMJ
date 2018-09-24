@@ -1,4 +1,4 @@
-package sample;
+package mainScene;
 
 import javafx.scene.media.AudioClip;
 
