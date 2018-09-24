@@ -3,8 +3,16 @@ package mainScene;
 import java.util.ArrayList;
 
 public class SimonGame {
+    // make audioClips for every sound
+    public SoundButton soundBtn1 = new SoundButton("btn_1", "btn_1.mp3");
+    public SoundButton soundBtn2 = new SoundButton("btn_2", "btn_2.wav");
+    public SoundButton soundBtn3 = new SoundButton("btn_3", "btn_3.wav");
+    public SoundButton soundBtn4 = new SoundButton("btn_4", "btn_4.wav");
+
+    public SoundButton[] sounds = { soundBtn1, soundBtn2, soundBtn3, soundBtn4 };
+
     private ArrayList<Integer> simonSequence = new ArrayList<>();
-    private ArrayList<Integer> userSequence = new ArrayList<>(); // better to check on the go?
+    //private ArrayList<Integer> userSequence = new ArrayList<>(); // better to check on the go?
 
     private int gameLevel;
 
@@ -20,10 +28,12 @@ public class SimonGame {
         return gameLevel;
     }
 
-    public static void startGame() {
+    public void startGame() {
         // create array for holding sequece
+        int random = generateRandomNum();
         // create array for user sequence
-
+        sounds[random].play();
+        System.out.println(random);
         // randomly choose a button, add to sequence, call activate voice
         // other class for buttons
 
@@ -38,8 +48,8 @@ public class SimonGame {
     * */
 
 
-    /* === Generate random number from 1 - 4 (inclusive) === */
-    public static int generateRandom() {
-        return (int) Math.ceil(Math.random() * 4);
+    /* === Generate random number from 0 - 3 (inclusive) === */
+    private int generateRandomNum() {
+        return (int) Math.floor(Math.random() * 4);
     }
 }
