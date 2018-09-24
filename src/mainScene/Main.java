@@ -1,4 +1,4 @@
-package sample;
+package mainScene;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +10,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Scene scene = new Scene(root, 600, 475);
-        scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+      /* === Username Scene === */
+        // load layout
+        Parent user = FXMLLoader.load(getClass().getResource("/usernameScene/username.fxml"));
+        // username scene
+        Scene userScene = new Scene(user, 600, 475);
 
+        /* === Main scene === */
         primaryStage.setTitle("MJ Simon Game");
-        primaryStage.setScene(scene);
+        primaryStage.setScene(userScene);
         primaryStage.show();
     }
 

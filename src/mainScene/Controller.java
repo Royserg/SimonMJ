@@ -22,6 +22,8 @@ public class Controller implements Initializable {
     private SoundButton soundBtn2 = new SoundButton("btn_2", "btn_2.wav");
     private SoundButton soundBtn3 = new SoundButton("btn_3", "btn_3.wav");
     private SoundButton soundBtn4 = new SoundButton("btn_4", "btn_4.wav");
+    // initialize game
+    private SimonGame game = new SimonGame();
 
 
     @FXML
@@ -67,7 +69,9 @@ public class Controller implements Initializable {
 
     // init method - doesn't seem that I need it
     public void initialize(URL url, ResourceBundle resource) {
-        /* === Initialize SimonGame  === */
+        /* === set level  === */
+        game.setLevel(1);
+        System.out.println(game.getLevel());
         // Get username
     }
 }

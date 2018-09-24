@@ -6,17 +6,17 @@ public class SimonGame {
     private ArrayList<Integer> simonSequence = new ArrayList<>();
     private ArrayList<Integer> userSequence = new ArrayList<>(); // better to check on the go?
 
-    private static int gameLevel;
+    private int gameLevel;
 
-    public static void setLevel(int level) {
+    public void setLevel(int level) {
         gameLevel = level;
     }
 
-    public static int levelUp() {
+    public int levelUp() {
         return ++gameLevel;
     }
 
-    public static int getLevel() {
+    public int getLevel() {
         return gameLevel;
     }
 
