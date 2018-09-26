@@ -11,7 +11,7 @@ public class SimonGame {
 
     public SoundButton[] sounds = { soundBtn1, soundBtn2, soundBtn3, soundBtn4 };
 
-    private ArrayList<Integer> simonSequence = new ArrayList<>();
+    private ArrayList<Integer> soundSequence = new ArrayList<>();
     //private ArrayList<Integer> userSequence = new ArrayList<>(); // better to check on the go?
 
     private int gameLevel;
