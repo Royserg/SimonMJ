@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -17,6 +18,8 @@ public class Main extends Application {
         Scene userScene = new Scene(user, 600, 475);
 
         /* === Main scene === */
+        // make stage transparent
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("MJ Simon Game");
         primaryStage.setScene(userScene);
         primaryStage.show();
