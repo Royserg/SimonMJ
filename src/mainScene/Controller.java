@@ -1,5 +1,6 @@
 package mainScene;
 
+import animatefx.animation.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -18,6 +20,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
+    @FXML
+    private StackPane mainStage;
+
     @FXML
     private Label mainMessage;
 
@@ -36,20 +42,28 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void startGame() {
+    void startGame(ActionEvent event) {
         // set initial level
         mainMessage.setText("Level " + game.getLevel());
         // TODO hide Start Button
 
+
+        // get btnNodes
+        Button[] btnNodes = {
+                    (Button) mainStage.lookup("#btn_0"),
+                    (Button) mainStage.lookup("#btn_1"),
+                    (Button) mainStage.lookup("#btn_2"),
+                    (Button) mainStage.lookup("#btn_3")
+                    };
+
         // launch the game
-        game.startGame();
+        game.startGame(btnNodes);
+
     }
 
     public void pressSoundButton(ActionEvent event) {
-        String btn_id = ((Button)event.getSource()).getId();
-
         // check if correct and play sound
-        game.pressedSoundButton(btn_id);
+        game.pressedSoundButton((Node)event.getSource());
 
         // TODO:
         /* `while` loop running until user choose GameLevel times the sound */
@@ -73,6 +87,9 @@ public class Controller implements Initializable {
             player.setName(usernameInput.getText());
 
             stage.setScene(mainScene);
+
+            // animate scene
+            new FadeIn(main).play();
         }
     }
 
