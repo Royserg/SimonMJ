@@ -1,5 +1,6 @@
 package mainScene;
 
+import animatefx.animation.FadeIn;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,12 +18,15 @@ public class Main extends Application {
         // username scene
         Scene userScene = new Scene(user, 600, 475);
 
-        /* === Main scene === */
         // make stage transparent
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("MJ Simon Game");
         primaryStage.setScene(userScene);
         primaryStage.show();
+
+        // animate the Stage
+        new FadeIn(user).play();
+
     }
 
 
