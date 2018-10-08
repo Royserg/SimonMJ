@@ -47,7 +47,6 @@ public class Controller implements Initializable {
         mainMessage.setText("Level " + game.getLevel());
         // TODO hide Start Button
 
-
         // get btnNodes
         Button[] btnNodes = {
                     (Button) mainStage.lookup("#btn_0"),
@@ -66,7 +65,13 @@ public class Controller implements Initializable {
         game.pressedSoundButton((Node)event.getSource());
 
         // TODO:
-        /* `while` loop running until user choose GameLevel times the sound */
+        /* return something from game.pressedSoundBtn
+            most probably change Simon Game button activities so
+            all is controlled from Controller
+        *  level up
+        *  set new level to Label
+        *
+        * */
     }
 
     public void changeScene(ActionEvent event) throws Exception {
