@@ -33,6 +33,10 @@ public class SimonGame {
         gameLevel = level;
     }
 
+    public void clearSequence() {
+        soundSequence.clear();
+    }
+
 
     public void levelUp() {
         // play sounds faster
@@ -85,7 +89,6 @@ public class SimonGame {
 
                     // play animation
                     new BounceIn(btnNodes[soundSequence.get(i)]).play();
-//                    new FadeIn(btnNodes[soundSequence.get(i)]).play();
                     // play sound
                     sounds[soundSequence.get(i)].play();
                     // pause thread
@@ -106,15 +109,12 @@ public class SimonGame {
     String pressedSoundButton(Node btnNode) {
         String btn_id = btnNode.getId();
         int soundNum = Character.getNumericValue(btn_id.charAt(btn_id.length() - 1));
-//        System.out.println("btn index: " + soundNum);
-
 
         // check if is matching position in sequence
         if (soundNum == soundSequence.get(userSequenceCounter)) {
             System.out.println("sounds the same");
 
             // animate button
-//            new BounceIn(btnNode).play();
             new FadeIn(btnNode).play();
             // play sound
             sounds[soundNum].play();

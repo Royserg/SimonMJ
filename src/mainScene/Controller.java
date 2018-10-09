@@ -46,11 +46,12 @@ public class Controller implements Initializable {
 
     @FXML
     void startGame(ActionEvent event) {
-        // set initial level
+        // set 1st level
+        game.setLevel(1);
+        // set Label text level
         mainMessage.setText("Level " + game.getLevel());
 
-        // TODO hide Start Button
-        System.out.println("start btn: " + startBtn);
+        // hide Start Button
         new FadeOut(startBtn).setSpeed(200).play();
 
         // get btnNodes
@@ -86,9 +87,14 @@ public class Controller implements Initializable {
         } else if (correctSequence.equals("false")){
             // stop the game
             System.out.println("Game stopping, You lost");
-            // TODO reset the sound sequence
 
-            // TODO show start button ("restart" label)
+            // reset the sound sequence
+            game.clearSequence();
+
+            // show start button ("restart" label)
+            new FadeIn(startBtn).setSpeed(400).play();
+            startBtn.setText("Restart?");
+            mainMessage.setText("Game Over :(\nYour Score: " + game.getLevel());
         }
 
     }
@@ -119,7 +125,5 @@ public class Controller implements Initializable {
 
     // init method - doesn't seem that I need it
     public void initialize(URL url, ResourceBundle resource) {
-        /* === set level  === */
-        game.setLevel(1);
     }
 }
