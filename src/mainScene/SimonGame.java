@@ -1,6 +1,7 @@
 package mainScene;
 
 import animatefx.animation.BounceIn;
+import animatefx.animation.FadeIn;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 
@@ -84,6 +85,7 @@ public class SimonGame {
 
                     // play animation
                     new BounceIn(btnNodes[soundSequence.get(i)]).play();
+//                    new FadeIn(btnNodes[soundSequence.get(i)]).play();
                     // play sound
                     sounds[soundSequence.get(i)].play();
                     // pause thread
@@ -112,7 +114,8 @@ public class SimonGame {
             System.out.println("sounds the same");
 
             // animate button
-            new BounceIn(btnNode).play();
+//            new BounceIn(btnNode).play();
+            new FadeIn(btnNode).play();
             // play sound
             sounds[soundNum].play();
 
