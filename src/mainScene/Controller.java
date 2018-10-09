@@ -51,6 +51,7 @@ public class Controller implements Initializable {
 
         // TODO hide Start Button
         System.out.println("start btn: " + startBtn);
+        new FadeOut(startBtn).setSpeed(200).play();
 
         // get btnNodes
         Button[] btnNodes = {
