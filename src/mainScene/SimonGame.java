@@ -107,6 +107,13 @@ public class SimonGame {
     }
 
     String pressedSoundButton(Node btnNode) {
+
+        if (soundSequence.size() == 0) {
+            /* return nothing when game is not started
+               buttons not activated    */
+            return "";
+        }
+
         String btn_id = btnNode.getId();
         int soundNum = Character.getNumericValue(btn_id.charAt(btn_id.length() - 1));
 
