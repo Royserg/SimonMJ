@@ -49,7 +49,7 @@ public class SimonGame {
     /* === Methods === */
     void startGame(Button[] btnNodes) {
         // get random sound
-        ChooseRandomSound();
+        AddRandomSound();
 
         // save reference to btnNodes into private array
         System.arraycopy(btnNodes, 0, this.btnNodes, 0, btnNodes.length);
@@ -64,15 +64,14 @@ public class SimonGame {
     }
 
     /* === choose sound at random and add to sequence array === */
-    private void ChooseRandomSound() {
+    public void AddRandomSound() {
         // get random number 0-3
         int random = generateRandomNum();
         // add to array
         soundSequence.add(random);
     }
 
-
-    private void playSoundSequence() {
+    public void playSoundSequence() {
         // New thread for executing animation and sound
         Runnable runnable = () -> {
             for (int i = 0; i < soundSequence.size(); i++) {
@@ -102,7 +101,7 @@ public class SimonGame {
         thread.start();
     }
 
-    void pressedSoundButton(Node btnNode) {
+    String pressedSoundButton(Node btnNode) {
         String btn_id = btnNode.getId();
         int soundNum = Character.getNumericValue(btn_id.charAt(btn_id.length() - 1));
 //        System.out.println("btn index: " + soundNum);
@@ -120,21 +119,19 @@ public class SimonGame {
             userSequenceCounter++;
         } else {
             // guessed wrong
-            System.out.println("Game Over");
-            // TODO 'buuuuu' sound and turn off the game
+            return "false";
         }
 
         // zero counter after correctly guessed sequence
         if (userSequenceCounter >= soundSequence.size()) {
+            // zero the counter
             userSequenceCounter = 0;
-            // level up
-            levelUp();
-            // add song to the sequence
-            ChooseRandomSound();
-            // play sequence
-            playSoundSequence();
+            // pass info to controller
+            return "true";
         }
 
+        // to return anything and continue
+        return "";
     }
 
 }

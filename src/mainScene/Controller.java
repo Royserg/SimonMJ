@@ -22,6 +22,9 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
+    private Button startBtn;
+
+    @FXML
     private StackPane mainStage;
 
     @FXML
@@ -45,7 +48,9 @@ public class Controller implements Initializable {
     void startGame(ActionEvent event) {
         // set initial level
         mainMessage.setText("Level " + game.getLevel());
+
         // TODO hide Start Button
+        System.out.println("start btn: " + startBtn);
 
         // get btnNodes
         Button[] btnNodes = {
@@ -61,17 +66,30 @@ public class Controller implements Initializable {
     }
 
     public void pressSoundButton(ActionEvent event) {
-        // check if correct and play sound
-        game.pressedSoundButton((Node)event.getSource());
+        // receive boolean from pressed button
+        String correctSequence;
 
-        // TODO:
-        /* return something from game.pressedSoundBtn
-            most probably change Simon Game button activities so
-            all is controlled from Controller
-        *  level up
-        *  set new level to Label
-        *
-        * */
+        // check sequence on game part
+        correctSequence = game.pressedSoundButton((Node)event.getSource());
+
+        if (correctSequence.equals("true")) {
+            // level up
+            game.levelUp();
+            // update label
+            mainMessage.setText("Level " + game.getLevel());
+            // add random sound to the sequence
+            game.AddRandomSound();
+            // play sound sequence
+            game.playSoundSequence();
+
+        } else if (correctSequence.equals("false")){
+            // stop the game
+            System.out.println("Game stopping, You lost");
+            // TODO reset the sound sequence
+
+            // TODO show start button ("restart" label)
+        }
+
     }
 
     public void changeScene(ActionEvent event) throws Exception {
