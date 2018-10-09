@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -12,20 +13,23 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-      /* === Username Scene === */
         // load layout
-        Parent user = FXMLLoader.load(getClass().getResource("/usernameScene/username.fxml"));
-        // username scene
-        Scene userScene = new Scene(user, 600, 475);
+        Parent main = FXMLLoader.load(getClass().getResource("/mainScene/main.fxml"));
+        // create scene
+        Scene mainScene = new Scene(main, 600, 600);
+        // connect stylesheet
+        mainScene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+        // set background to transparent
+        mainScene.setFill(Color.TRANSPARENT);
 
-        // make stage transparent
+        // hide default action buttons
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("MJ Simon Game");
-        primaryStage.setScene(userScene);
+        primaryStage.setScene(mainScene);
         primaryStage.show();
 
         // animate the Stage
-        new FadeIn(user).play();
+        new FadeIn(main).play();
 
     }
 
