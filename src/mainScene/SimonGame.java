@@ -50,7 +50,6 @@ public class SimonGame {
         return gameLevel;
     }
 
-
     /* === Methods === */
     void startGame(Button[] btnNodes) {
         // get random sound

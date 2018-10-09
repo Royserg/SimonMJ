@@ -98,31 +98,7 @@ public class Controller implements Initializable {
         }
 
     }
-
-    public void changeScene(ActionEvent event) throws Exception {
-        // no username - choose random
-        if (usernameInput.getText().length() == 0) {
-            usernameInput.setText("randomGuy");
-        } else {
-
-            Parent main = FXMLLoader.load(getClass().getResource("main.fxml"));
-
-            Scene mainScene = new Scene(main, 600, 600);
-            mainScene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
-            mainScene.setFill(Color.TRANSPARENT);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // initialize player with provided username
-            player.setName(usernameInput.getText());
-
-            stage.setScene(mainScene);
-
-            // animate scene
-            new FadeIn(main).play();
-        }
-    }
-
+    
     // init method - doesn't seem that I need it
     public void initialize(URL url, ResourceBundle resource) {
     }

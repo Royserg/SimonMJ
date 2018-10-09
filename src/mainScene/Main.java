@@ -30,9 +30,7 @@ public class Main extends Application {
 
         // animate the Stage
         new FadeIn(main).play();
-
     }
-
 
     public static void main(String[] args) {
         launch(args);
