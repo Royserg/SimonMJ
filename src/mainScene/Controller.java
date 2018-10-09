@@ -4,17 +4,12 @@ import animatefx.animation.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,14 +24,9 @@ public class Controller implements Initializable {
 
     @FXML
     private Label mainMessage;
-
-    @FXML
-    private TextField usernameInput;
-
+    
     // initialize SimonGame
     private SimonGame game = new SimonGame();
-    // initialize Player
-    private Player player = new Player();
 
     @FXML
     void closeProgram() {
@@ -98,7 +88,7 @@ public class Controller implements Initializable {
         }
 
     }
-    
+
     // init method - doesn't seem that I need it
     public void initialize(URL url, ResourceBundle resource) {
     }
