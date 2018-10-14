@@ -11,6 +11,10 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
+    // define offsets
+    private double xOffset = 0.0;
+    private double yOffset = 0.0;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         // load layout
@@ -21,6 +25,20 @@ public class Main extends Application {
         mainScene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
         // set background to transparent
         mainScene.setFill(Color.TRANSPARENT);
+
+        /* https://medium.com/@keeptoo/making-a-borderless-javafx-window-movable-f7855eb33a51 */
+        // grab main Stage
+        main.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        // move around
+        main.setOnMouseDragged(event -> {
+            primaryStage.setX(event.getScreenX() - xOffset);
+            primaryStage.setY(event.getScreenY() - yOffset);
+        });
+
 
         // hide default action buttons
         primaryStage.initStyle(StageStyle.TRANSPARENT);
