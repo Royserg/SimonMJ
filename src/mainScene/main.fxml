@@ -49,9 +49,10 @@
       </GridPane>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="275.0">
          <children>
-            <Button layoutX="170.0" layoutY="7.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="9.0" prefWidth="36.0" text="x" />
-            <Button fx:id="startBtn" layoutX="68.0" layoutY="107.0" mnemonicParsing="false" onAction="#startGame" prefHeight="38.0" prefWidth="138.0" text="Start" />
-            <Label fx:id="mainMessage" layoutX="88.0" layoutY="45.0" prefHeight="53.0" prefWidth="117.0" text="Start Game" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="closeBtn" alignment="CENTER" layoutX="175.0" layoutY="6.0" maxHeight="31.0" maxWidth="38.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeProgram" prefHeight="38.0" prefWidth="38.0" text="❌" textAlignment="CENTER" />
+            <Button fx:id="startBtn" layoutX="68.0" layoutY="107.0" maxWidth="138.0" mnemonicParsing="false" onAction="#startGame" prefHeight="30.0" prefWidth="138.0" text="Start" />
+            <Label fx:id="mainMessage" alignment="CENTER" layoutX="68.0" layoutY="45.0" prefHeight="54.0" prefWidth="138.0" text="Simon MJ" textFill="WHITE" wrapText="true" />
+            <Button fx:id="minBtn" alignment="CENTER" layoutX="130.0" layoutY="6.0" maxHeight="31.0" maxWidth="72.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#minimize" prefHeight="38.0" prefWidth="38.0" text="―" />
          </children>
       </AnchorPane>
    </children>
