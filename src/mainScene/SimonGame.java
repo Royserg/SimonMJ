@@ -1,9 +1,7 @@
 package mainScene;
 
-import animatefx.animation.BounceIn;
 import animatefx.animation.FadeIn;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 
 import java.util.ArrayList;
 
@@ -13,13 +11,9 @@ public class SimonGame {
     private SoundButton soundBtn2 = new SoundButton("btn_2", "btn_2.wav");
     private SoundButton soundBtn3 = new SoundButton("btn_3", "btn_3.wav");
     private SoundButton soundBtn4 = new SoundButton("btn_4", "btn_4.wav");
-    private int delay = 1200;
     private int gameLevel;
 
     private int userSequenceCounter = 0;
-
-    // array holding Button Nodes
-    private Button[] btnNodes = new Button[4];
 
     private SoundButton[] sounds = { soundBtn1, soundBtn2, soundBtn3, soundBtn4 };
 
@@ -39,8 +33,6 @@ public class SimonGame {
 
 
     public void levelUp() {
-        // play sounds faster
-        delay -= 50;
         // increment game level
         ++gameLevel;
     }
@@ -50,16 +42,8 @@ public class SimonGame {
         return gameLevel;
     }
 
-    /* === Methods === */
-    void startGame(Button[] btnNodes) {
-        // get random sound
-        AddRandomSound();
-
-        // save reference to btnNodes into private array
-        System.arraycopy(btnNodes, 0, this.btnNodes, 0, btnNodes.length);
-
-        // play sequence of sounds
-        playSoundSequence();
+    ArrayList<Integer> getSoundSequence() {
+        return soundSequence;
     }
 
     /* === Generate random number from 0 - 3 (inclusive) === */
@@ -69,40 +53,20 @@ public class SimonGame {
 
     /* === choose sound at random and add to sequence array === */
     public void AddRandomSound() {
+        // randomize all sounds
+        if (soundSequence.size() > 0) {
+            for (int i = 0; i < soundSequence.size(); i++) {
+                soundSequence.set(i, generateRandomNum());
+            }
+        }
         // get random number 0-3
         int random = generateRandomNum();
-        // add to array
+        // add additional random sound
         soundSequence.add(random);
     }
 
-    public void playSoundSequence() {
-        // New thread for executing animation and sound
-        Runnable runnable = () -> {
-            for (int i = 0; i < soundSequence.size(); i++) {
-
-                try {
-                    if ( i == 0 && soundSequence.size() > 1) {
-                        // sleep after user chose sequence
-                        Thread.sleep(1500);
-                    }
-
-                    // play animation
-                    new BounceIn(btnNodes[soundSequence.get(i)]).play();
-                    // play sound
-                    sounds[soundSequence.get(i)].play();
-                    // pause thread
-                    Thread.sleep(delay);
-
-                } catch (InterruptedException e) {
-                    // when the thread gets interrupted - can check something
-                    e.printStackTrace();
-                }
-            }
-
-        };
-
-        Thread thread = new Thread(runnable);
-        thread.start();
+    public void playSound(int index) {
+        sounds[index].play();
     }
 
     String pressedSoundButton(Node btnNode) {
@@ -118,8 +82,6 @@ public class SimonGame {
 
         // check if is matching position in sequence
         if (soundNum == soundSequence.get(userSequenceCounter)) {
-            System.out.println("sounds the same");
-
             // animate button
             new FadeIn(btnNode).play();
             // play sound
@@ -144,7 +106,3 @@ public class SimonGame {
     }
 
 }
-
-
-
-// ideas for extra features - choose how many songs should be added each level
