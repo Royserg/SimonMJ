@@ -1,4 +1,4 @@
-package mainScene;
+package application;
 
 import javafx.scene.media.AudioClip;
 
@@ -9,7 +9,7 @@ public class SoundButton {
 
     public SoundButton(String id, String filename) {
         this.id = id;
-        this.sound = new AudioClip(getClass().getResource("./assets/" + filename).toString());
+        this.sound = new AudioClip(getClass().getClassLoader().getResource("audio/" + filename).toString());
     }
 
     public void play() {

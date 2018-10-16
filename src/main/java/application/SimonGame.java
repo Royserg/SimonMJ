@@ -1,4 +1,4 @@
-package mainScene;
+package application;
 
 import animatefx.animation.FadeIn;
 import javafx.scene.Node;
@@ -38,11 +38,11 @@ public class SimonGame {
     }
 
     /* === getters === */
-    int getLevel() {
+    public int getLevel() {
         return gameLevel;
     }
 
-    ArrayList<Integer> getSoundSequence() {
+    public ArrayList<Integer> getSoundSequence() {
         return soundSequence;
     }
 
@@ -69,7 +69,7 @@ public class SimonGame {
         sounds[index].play();
     }
 
-    String pressedSoundButton(Node btnNode) {
+    public String pressedSoundButton(Node btnNode) {
 
         if (soundSequence.size() == 0) {
             /* return nothing when game is not started

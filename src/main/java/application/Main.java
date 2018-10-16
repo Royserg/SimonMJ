@@ -1,4 +1,4 @@
-package mainScene;
+package application;
 
 import animatefx.animation.FadeIn;
 import javafx.application.Application;
@@ -18,11 +18,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         // load layout
-        Parent main = FXMLLoader.load(getClass().getResource("/mainScene/main.fxml"));
+//        Parent main = FXMLLoader.load(getClass().getResource("view/main.fxml"));
+
+        FXMLLoader loader = new FXMLLoader();
+        Parent main = loader.load(getClass().getClassLoader().getResourceAsStream("view/main.fxml"));
+
         // create scene
         Scene mainScene = new Scene(main, 600, 600);
         // connect stylesheet
-        mainScene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+        mainScene.getStylesheets().add(getClass().getResource("/css/main.css").toExternalForm());
         // set background to transparent
         mainScene.setFill(Color.TRANSPARENT);
 

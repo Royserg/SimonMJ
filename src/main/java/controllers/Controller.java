@@ -1,5 +1,6 @@
-package mainScene;
+package controllers;
 
+import application.SimonGame;
 import animatefx.animation.BounceIn;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeOut;
