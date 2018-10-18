@@ -1,6 +1,8 @@
 # Simon MJ Game
 
  Simon memory game with Michael Jackson sounds.
+ 
+ [=> youtube gameplay video <=](https://youtu.be/VQkuDsD8v0s)
 
 ## Technologies used
 
